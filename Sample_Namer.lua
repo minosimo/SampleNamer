@@ -45,8 +45,8 @@ function AppendRR()
 				item = reaper.GetSelectedMediaItem(0, i)
 				item_take = reaper.GetActiveTake(item)
 
-				local _, name = reaper.GetSetMediaItemTakeInfo_String(item_take, "P_NAME", "RR" .. k, false)
-				local _, name = reaper.GetSetMediaItemTakeInfo_String(item_take, "P_NAME", name .. "_RR" .. k, true)
+				local _, name = reaper.GetSetMediaItemTakeInfo_String(item_take, "P_NAME", "" .. k, false)
+				local _, name = reaper.GetSetMediaItemTakeInfo_String(item_take, "P_NAME", name .. "_RR_" .. k, true)
 
 				
 				i = i + rr_amount
