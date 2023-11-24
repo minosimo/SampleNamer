@@ -182,13 +182,9 @@ function Main()
 			ImportTrack()
 		end
 
-	    if import_pitch == true then
-	    	AppendRegion()
-	    end
-
-	    if dyn_amount > 1 then
-			AppendDyn()
-		end
+    if import_pitch == true then
+    	AppendRegion()
+    end
 
 		if rr_amount > 1 then
 			AppendRR()
