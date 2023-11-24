@@ -105,8 +105,6 @@ function AppendDyn()
 	end
 end
 
-
-
 function AppendRegion()
 	count_sel_item = reaper.CountSelectedMediaItems(0)
 	  
@@ -125,7 +123,7 @@ function AppendRegion()
 		retval, region_exists, region_pos, region_end, region_name, marker_index = reaper.EnumProjectMarkers(last_region)
 		
 		local _, name = reaper.GetSetMediaItemTakeInfo_String(item_take, "P_NAME",region_name, false) -- get name
-		local _, name = reaper.GetSetMediaItemTakeInfo_String(item_take, "P_NAME", name .. "_" .. region_name, true) -- store new name
+		local _, name = reaper.GetSetMediaItemTakeInfo_String(item_take, "P_NAME", name .. region_name, true) -- store new name
 		
 		i = i + 1
 	end
@@ -148,10 +146,6 @@ function ImportTrack()
 		local _, name = reaper.GetSetMediaItemTakeInfo_String(item_take, "P_NAME","", false) -- get name
 		local _, name = reaper.GetSetMediaItemTakeInfo_String(item_take, "P_NAME", item_track_name, true) -- store new name
 	end
-end
-
-function DetectPitch()
-
 end
 
 function Main()
@@ -198,6 +192,10 @@ function Main()
 
 		if rr_amount > 1 then
 			AppendRR()
+		end
+
+		if dyn_amount > 1 then
+			AppendDyn()
 		end
 		reaper.Undo_EndBlock("Sample Namer: " .. dyn_amount .. " Dyn, " .. rr_amount .. " RRs", -1)
 	end
